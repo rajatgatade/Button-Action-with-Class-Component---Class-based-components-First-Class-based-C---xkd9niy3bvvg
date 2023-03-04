@@ -1,25 +1,33 @@
 import React, { Component, useState } from "react";
-import '../styles/App.css';
+import "../styles/App.css";
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      showParagraph: false
+      display: false,
     };
+    this.handleClick = this.handleClick.bind(this);
   }
 
-  handleClick = () => {
+  handleClick() {
     this.setState({
-      showParagraph: true
+      display: true,
     });
   }
 
   render() {
     return (
       <div id="main">
-        <button id="click" onClick={this.handleClick}>Click</button>
-        {this.state.showParagraph && <p id="para">Hello, I've learnt to use the full-stack evaluation tool. This makes me so happy</p>}
+        <button id="click" onClick={this.handleClick}>
+          Click me
+        </button>
+        {this.state.display && (
+          <p id="para">
+            Hello, I've learnt to use the full-stack evaluation tool. This makes
+            me so happy
+          </p>
+        )}
       </div>
     );
   }
